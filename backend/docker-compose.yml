@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  financial-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./financial_data:/app/financial_data
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    restart: unless-stopped
